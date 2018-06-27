@@ -106,10 +106,12 @@ h1 {
   display: inline-block;
   margin: 10px;
   border-bottom: 2px solid #D5CFE3;
-  padding: 20px;
   height: 100px;
   width: 150px;
   border-radius: 10px;
+  font-size: 18px;
+
+  padding-top: 20px;
 }
 
 .taskCollection li.false {

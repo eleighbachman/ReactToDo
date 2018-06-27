@@ -10,7 +10,7 @@ class AddTask extends Component {
   render() {
     return (
       <div className="inputWrapper">
-        <input className="form-control" type="text" placeholder="Add a Task" value={this.state.term} onChange={ event => this.onTermChange(event.target.value)}/>
+        <input className="form-control" type="text" placeholder="Add a Task" maxLength="14" value={this.state.term} onChange={ event => this.onTermChange(event.target.value)}/>
         <button className="btn" onClick={() => this.addNewTask(this.state.term)}>Submit</button>
       </div>
     );

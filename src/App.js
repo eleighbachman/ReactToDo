@@ -8,21 +8,36 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.addNewTask = this.addNewTask.bind(this);
+    this.toggleCompletion = this.toggleCompletion.bind(this);
     this.state = {
         tasks : [
-        { name: "Wash Dishes", complete: "true" },
-        { name: "Do Laundry", complete: "false" },
-        { name: "Walk the Dog", complete: "false" },
-        { name: "Wash the Car", complete: "false" },
-        { name: "Chemistry", complete: "true" },
-        { name: "German", complete: "false" },
-        { name: "React App", complete: "false" }
+        { name: "Wash Dishes", complete: true },
+        { name: "Do Laundry", complete: false },
+        { name: "Walk the Dog", complete: false },
+        { name: "Wash the Car", complete: false },
+        { name: "Chemistry", complete: true },
+        { name: "German", complete: false },
+        { name: "React App", complete: false }
       ]
     }
   }
 
   addNewTask(term) {
     this.setState({ tasks : [{name: term, complete: "false"}, ...this.state.tasks] })
+  };
+
+  toggleCompletion(name, property) {
+    this.setState({
+      tasks: this.state.tasks.map((task, id) => {
+        if (task.name === name) {
+          return {
+            name: task.name,
+            complete: !property
+          };
+        }
+        return task;
+      })
+    })
   };
 
   render() {
@@ -36,7 +51,7 @@ class App extends Component {
         <div className="addTaskBody">
           <AddTask addNewTask={this.addNewTask}/>
         </div>
-        <TaskBody tasks={this.state.tasks}/>
+        <TaskBody toggleCompletion={this.toggleCompletion} tasks={this.state.tasks}/>
       </div>
     );
   }

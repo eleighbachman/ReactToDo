@@ -1,8 +1,9 @@
 import React from 'react';
 
 const Task = (props) => {
+
   return (
-    <li className={props.task.complete}>
+    <li onClick={() => props.toggleCompletion(props.task.name, props.task.complete)} className={props.task.complete ? "true" : "false"}>
       {props.task.name}
     </li>
   )
