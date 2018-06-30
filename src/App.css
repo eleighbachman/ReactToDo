@@ -132,12 +132,18 @@ h1 {
   cursor: pointer;
 }
 
-.delete {
-  font-size: 10px;
-  text-transform: uppercase;
-  margin-top: 25px;
+.taskItem input {
+  width: 90%;
 }
 
-.delete:hover {
+.delete, .edit {
+  font-size: 10px;
+  width: 50%;
+  text-transform: uppercase;
+  margin-top: 25px;
+  float: left;
+}
+
+.delete:hover, .edit:hover {
   font-weight: bold;
 }
