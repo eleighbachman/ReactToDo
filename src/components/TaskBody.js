@@ -14,7 +14,7 @@ const TaskBody = (props) => {
           <div className="row">
             <div className="col-sm-8">
               <h2>My Tasks</h2>
-              <p><input type="checkbox"/> Show only incomplete </p>
+              
             </div>
             <div className="col-sm-4">
               <p>Total Tasks: {props.tasks.length}</p>
