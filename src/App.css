@@ -120,10 +120,24 @@ h1 {
 
 .taskCollection li.true {
   background-color: #7464B0;
-  text-decoration: line-through;
+
   color: #eee;
+}
+
+.taskCollection li.true .taskItem {
+  text-decoration: line-through;
 }
 
 .taskCollection li:hover {
   cursor: pointer;
+}
+
+.delete {
+  font-size: 10px;
+  text-transform: uppercase;
+  margin-top: 25px;
+}
+
+.delete:hover {
+  font-weight: bold;
 }

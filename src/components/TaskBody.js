@@ -24,7 +24,7 @@ const TaskBody = (props) => {
         <ul className="taskCollection">
         {props.tasks.map((task) => {
           return (
-            <Task toggleCompletion={props.toggleCompletion} task={task} key={task.name}/>
+            <Task deleteTask={props.deleteTask} toggleCompletion={props.toggleCompletion} task={task} key={task.name}/>
           )
         })}
         </ul>

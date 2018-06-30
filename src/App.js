@@ -9,6 +9,7 @@ class App extends Component {
     super(props);
     this.addNewTask = this.addNewTask.bind(this);
     this.toggleCompletion = this.toggleCompletion.bind(this);
+    this.deleteTask = this.deleteTask.bind(this);
     this.state = {
         tasks : [
         { name: "Wash Dishes", complete: true },
@@ -23,8 +24,20 @@ class App extends Component {
   }
 
   addNewTask(term) {
-    this.setState({ tasks : [{name: term, complete: "false"}, ...this.state.tasks] })
+    this.setState({ tasks : [{name: term, complete: false}, ...this.state.tasks] })
   };
+
+  deleteTask(task) {
+    this.setState({
+      task: this.state.tasks.map((item) => {
+        if (item.name === task) {
+          let indexItem = this.state.tasks.indexOf(item);
+          this.state.tasks.splice(indexItem, 1);
+        }
+        return item;
+      })
+    })
+  }
 
   toggleCompletion(name, property) {
     this.setState({
@@ -51,7 +64,7 @@ class App extends Component {
         <div className="addTaskBody">
           <AddTask addNewTask={this.addNewTask}/>
         </div>
-        <TaskBody toggleCompletion={this.toggleCompletion} tasks={this.state.tasks}/>
+        <TaskBody deleteTask={this.deleteTask} toggleCompletion={this.toggleCompletion} tasks={this.state.tasks}/>
       </div>
     );
   }
