@@ -2,7 +2,11 @@ import React from 'react';
 import Task from './Task';
 
 const TaskBody = (props) => {
+  let completeTasks = props.tasks.filter((task) => {
+    return task.complete === true;
+  });
 
+  let incompleteTasks = props.tasks.length - completeTasks.length;
   return(
     <div className="taskBody">
       <div className="bodyControls">
@@ -14,8 +18,8 @@ const TaskBody = (props) => {
             </div>
             <div className="col-sm-4">
               <p>Total Tasks: {props.tasks.length}</p>
-              <p>Complete Tasks: 0</p>
-              <p>Incomplete Tasks: 0</p>
+              <p>Complete Tasks: {completeTasks.length}</p>
+              <p>Incomplete Tasks: {incompleteTasks}</p>
             </div>
           </div>
         </div>
